@@ -73,6 +73,7 @@ RSpec.describe "test string is_valid_numeric?" do
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('e+16')).to eq false 
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('+e+16')).to eq false
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('-e+16')).to eq false
+				expect(RickSimpleString::NumberValidator.is_valid_numeric?('-.e+16')).to eq false
 			end
 		end
 

@@ -13,7 +13,7 @@ module RickSimpleString
 			end
 
 			digi_part = matches[1] 
-			if digi_part == '' || digi_part == '+' || digi_part == '-'
+			if !digi_part.match(/\d/)
 				return false
 			end
 
