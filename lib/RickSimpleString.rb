@@ -7,13 +7,8 @@ module RickSimpleString
 				return false
 			end
 
-			matches = string.match(/^((\+|-)?\d*\.?\d*)([eE](\+|-){1}\d+)?$/)
+			matches = string.match(/^((\+|-)?\d*\.?\d+)([eE](\+|-){1}\d+)?$/)
 			if !matches
-				return false
-			end
-
-			digi_part = matches[1] 
-			if !digi_part.match(/\d/)
 				return false
 			end
 

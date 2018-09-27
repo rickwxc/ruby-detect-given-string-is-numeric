@@ -15,7 +15,6 @@ RSpec.describe "test string is_valid_numeric?" do
 			it "with ." do
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('1.23')).to eq true
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('.123')).to eq true
-				expect(RickSimpleString::NumberValidator.is_valid_numeric?('123.')).to eq true
 			end
 
 			it "with +" do
@@ -47,6 +46,10 @@ RSpec.describe "test string is_valid_numeric?" do
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('')).to eq false
 			end
 
+			it "no digit after ." do
+				expect(RickSimpleString::NumberValidator.is_valid_numeric?('123.')).to eq false
+			end
+				
 			it "double ." do
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('.1.23')).to eq false
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('1.23.')).to eq false
@@ -74,6 +77,7 @@ RSpec.describe "test string is_valid_numeric?" do
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('+e+16')).to eq false
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('-e+16')).to eq false
 				expect(RickSimpleString::NumberValidator.is_valid_numeric?('-.e+16')).to eq false
+				expect(RickSimpleString::NumberValidator.is_valid_numeric?('-3.e+16')).to eq false
 			end
 		end
 
